@@ -5,7 +5,9 @@ class HomePage extends React.Component {
         return (
             <div>
                 <h1>Trang Chủ</h1>
+               <ul><a href = '/additem'>Thêm Item</a></ul>
                 <a href = '/items'>Chuyển trang test</a>
+                
             </div>
         )
     }

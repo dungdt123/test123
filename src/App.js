@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import Routes from './routes'
 import './App.css';
 
@@ -8,7 +8,7 @@ class App extends Component{
      return(
        <div className ="App">
          <Routes     />
-       </div>
+       </div> 
      );
    }
 }

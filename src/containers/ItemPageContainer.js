@@ -9,19 +9,26 @@ class ItemPageContainer extends Component {
     }
     render() {
         return (
-            <Items {...this.props} />
+            <div>
+                {this.props.isLoading == true
+                ?
+                <img src="https://i.pinimg.com/originals/90/80/60/9080607321ab98fa3e70dd24b2513a20.gif" />
+                :
+                <Items {...this.props} />}
+            </div>  
 
         )
     }
 }
-const mapStateToProps = (state) =>{
-    return{
-        items: state.items.listItem
+const mapStateToProps = (state) => {
+    return {
+        items: state.items.listItem,
+        isLoading: state.items.isFetching
     }
 }
-const mapDispatchToProps = (dispatch) =>{
-    return{
-        initLoad: () =>{
+const mapDispatchToProps = (dispatch) => {
+    return {
+        initLoad: () => {
             dispatch(actions.getListItem())
         }
     }

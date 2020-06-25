@@ -7,7 +7,8 @@ const Routes = () =>(
         <Switch>
             <Route exact path='/' component={page.HomePage} />
             <Route path='/items' component={page.ItemPage} />
+            <Route path='/additem' component={page.AddItemPage} />
         </Switch>
     </BrowserRouter>
 )
-export default Routes;
+export default Routes
