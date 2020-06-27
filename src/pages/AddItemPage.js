@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {
     Form,
     Input,
@@ -13,14 +14,15 @@ class AddItemPage extends Component {
             <div>
                 <h1>Add Item</h1>
                 <Form>
-                    <FormGroup>
+                    <FormGroup onChange=''>
                         <Label>ID</Label>
                         <Input type='text' placeholder="Enter ID"></Input>
                         <Label>Name</Label>
                         <Input type='text' placeholder="Enter Name"></Input>
                     </FormGroup>
                     <Button type='submit'>ADD</Button>
-                    <Link to="/" >Cancel</Link>
+                    
+                    <Link to="/" className='btn btn-danger' >Cancel</Link>
                 </Form>
             </div>
         )

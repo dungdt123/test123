@@ -11,11 +11,11 @@ class ItemPageContainer extends Component {
         return (
             <div>
                 {this.props.isLoading == true
-                ?
-                <img src="https://i.pinimg.com/originals/90/80/60/9080607321ab98fa3e70dd24b2513a20.gif" />
-                :
-                <Items {...this.props} />}
-            </div>  
+                    ?
+                    <img src="https://i.pinimg.com/originals/90/80/60/9080607321ab98fa3e70dd24b2513a20.gif" />
+                    :
+                    <Items {...this.props} />}
+            </div>
 
         )
     }
@@ -27,10 +27,17 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = (dispatch) => {
+
     return {
         initLoad: () => {
             dispatch(actions.getListItem())
+            
+        },
+        addDispatch: (data) => {
+            dispatch(actions.addItem(data))
+            
         }
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ItemPageContainer)
