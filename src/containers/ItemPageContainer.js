@@ -36,6 +36,9 @@ const mapDispatchToProps = (dispatch) => {
         addDispatch: (data) => {
             dispatch(actions.addItem(data))
             
+        },
+        updateDispatch:(data) =>{
+            dispatch(actions.updateItem(data))
         }
 
     }

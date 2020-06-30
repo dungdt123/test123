@@ -5,12 +5,19 @@ import {
     Input,
     Button,
     Label,
-    FormGroup
+    FormGroup,
+    Table
 } from 'reactstrap'
 class Items extends Component {
     constructor() {
         super()
-        this.state = { name: "" }
+        this.state = {
+            name: "",
+            objUpdate: {
+                id: 0,
+                name: ""
+            }
+        }
     }
     render() {
         let listData = []
@@ -20,7 +27,9 @@ class Items extends Component {
                     <tr key={key}>
                         <th>{item.id}</th>
                         <th>{item.name}</th>
+                        <th><button onClick={() => {this.setState({objUpdate: item})}}>Sửa</button></th>
                     </tr>
+                    
                 )
             })
         }
@@ -29,25 +38,42 @@ class Items extends Component {
                 <Form>
                     <FormGroup>
                         <Label>Name</Label>
-                        <Input type='text' placeholder="Enter Name" value={this.state.name} onChange={(event) => this.setState({ name: event.target.value })} onKeyPress={e => {
-                            if (e.key == 'Enter') {
-                                this.props.addDispatch(this.state.name)
+                        <Input type='text' placeholder="Enter Name" value={this.state.name} onChange={(event) => this.setState({ name: event.target.value })}
+                            onKeyPress={e => {
+                                if (e.keyCode === 13) {
+                                    this.props.addDispatch(this.state.name)
 
+                                }
                             }
-                        }
-                        } />
+                            } />
                     </FormGroup>
                     <Button onClick={() => this.props.addDispatch(this.state.name)}>ADD</Button>
                 </Form>
-                <table>
+                <Form>
+                    <FormGroup>
+                        <p>id đang sửa : {this.state.objUpdate.id}</p>
+                        <Input type='text' value={this.state.objUpdate.name} onChange={(event) => this.setState({ objUpdate: { ...this.state.objUpdate ,name: event.target.value }})}
+                            onKeyPress={e => {
+                                if (e.keyCode === 13) {
+                                    this.props.updateDispatch(this.state.objUpdate)
+
+                                }
+                            }
+                            }
+                             />
+                    </FormGroup>
+                    <Button onClick={() => this.props.updateDispatch(this.state.objUpdate)}>Sửa</Button>
+                </Form>
+                <Table>
                     <tbody>
                         <tr>
                             <th>ID của dữ liệu </th>
                             <th>Tên của dữ liệu</th>
+                            <th>Hành động</th>
                         </tr>
                         {listData}
                     </tbody>
-                </table>
+                </Table>
             </div >
         )
     }

@@ -11,3 +11,9 @@ export function addItem(payload){
         payload
     }
 }
+export function updateItem(payload) {
+    return{
+        type : types.PUT_ITEM_REQUEST,
+        payload
+    }
+}
