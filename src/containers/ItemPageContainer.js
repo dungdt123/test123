@@ -23,7 +23,8 @@ class ItemPageContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         items: state.items.listItem,
-        isLoading: state.items.isFetching
+        isLoading: state.items.isFetching,
+        textSearch : state.items.textSearch
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -39,6 +40,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         updateDispatch:(data) =>{
             dispatch(actions.updateItem(data))
+        },  
+        deleteDispatch:(data) =>{
+            dispatch(actions.deleteItem(data))
+        },
+        searchDispatch:(data) =>{
+            dispatch(actions.searchItem(data))
         }
 
     }

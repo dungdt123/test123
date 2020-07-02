@@ -6,7 +6,7 @@ import {
     Button,
     Label,
     FormGroup,
-    Table
+    Table, ButtonGroup
 } from 'reactstrap'
 class Items extends Component {
     constructor() {
@@ -16,7 +16,9 @@ class Items extends Component {
             objUpdate: {
                 id: 0,
                 name: ""
-            }
+            },
+            textSearch: ""
+
         }
     }
     render() {
@@ -27,9 +29,10 @@ class Items extends Component {
                     <tr key={key}>
                         <th>{item.id}</th>
                         <th>{item.name}</th>
-                        <th><button onClick={() => {this.setState({objUpdate: item})}}>Sửa</button></th>
+                        <th><button onClick={() => { this.setState({ objUpdate: item }) }}>Sửa</button></th>
+                        <th><button onClick={() => { this.props.deleteDispatch({ data: item.id, textSearch: this.props.textSearch }) }}>Xóa</button></th>
                     </tr>
-                    
+
                 )
             })
         }
@@ -52,7 +55,7 @@ class Items extends Component {
                 <Form>
                     <FormGroup>
                         <p>id đang sửa : {this.state.objUpdate.id}</p>
-                        <Input type='text' value={this.state.objUpdate.name} onChange={(event) => this.setState({ objUpdate: { ...this.state.objUpdate ,name: event.target.value }})}
+                        <Input type='text' value={this.state.objUpdate.name} onChange={(event) => this.setState({ objUpdate: { ...this.state.objUpdate, name: event.target.value } })}
                             onKeyPress={e => {
                                 if (e.keyCode === 13) {
                                     this.props.updateDispatch(this.state.objUpdate)
@@ -60,9 +63,14 @@ class Items extends Component {
                                 }
                             }
                             }
-                             />
+                        />
                     </FormGroup>
-                    <Button onClick={() => this.props.updateDispatch(this.state.objUpdate)}>Sửa</Button>
+                    <Button onClick={() => this.props.updateDispatch({ data: this.state.objUpdate, textSearch: this.props.textSearch })}>Sửa</Button>
+                    <FormGroup>
+                        <p>Search</p>
+                        <Input value={this.state.textSearch} onChange={(event) => { this.setState({ textSearch: event.target.value }) }} ></Input>
+                        <Button onClick={() => this.props.searchDispatch(this.state.textSearch)}>Search</Button>
+                    </FormGroup>
                 </Form>
                 <Table>
                     <tbody>
@@ -72,6 +80,9 @@ class Items extends Component {
                             <th>Hành động</th>
                         </tr>
                         {listData}
+                        <ButtonGroup className="btn btn-group-sm" aria-label="First group">
+                            <Button>1</Button> <Button>2</Button> <Button>3</Button> <Button>4</Button>
+                        </ButtonGroup>
                     </tbody>
                 </Table>
             </div >

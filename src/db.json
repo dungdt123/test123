@@ -1,18 +1,6 @@
 {
   "items": [
     {
-      "name": "Item 1111",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "name": "Item 2"
-    },
-    {
-      "name": "Item 3123213",
-      "id": 3
-    },
-    {
       "name": "123213213213",
       "id": 4
     },
@@ -37,14 +25,6 @@
       "id": 9
     },
     {
-      "name": "item",
-      "id": 10
-    },
-    {
-      "name": "abc",
-      "id": 11
-    },
-    {
       "name": "bnbnbnbn",
       "id": 12
     },
@@ -59,10 +39,6 @@
     {
       "name": "nbnbnb",
       "id": 15
-    },
-    {
-      "name": "abc",
-      "id": 16
     },
     {
       "name": "a",

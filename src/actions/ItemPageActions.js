@@ -17,3 +17,15 @@ export function updateItem(payload) {
         payload
     }
 }
+export function deleteItem(payload){
+    return{
+        type : types.DELETE_ITEM_REQUEST,
+        payload
+    }
+}
+export function searchItem(payload){
+    return{
+        type : types.SEARCH_ITEM_REQUEST,
+        payload
+    }
+}
